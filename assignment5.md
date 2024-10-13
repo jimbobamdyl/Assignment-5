@@ -16,15 +16,16 @@ The places you need to fill in code are indicated via `**(a-e, marks allocated)*
 
 ```Python
 # import libraries used in this script
-**(a, 1 mark)  ....**
+import sys
+import numpy
 
 def main():
     # read in the data from the .csv passed to our script
-    filename = **(b, 0.5 marks)...**
-    experiment_data = **(d, 0.5 marks)...**
+    filename = sys.argv[1]
+    experiment_data = np.loadtxt(filename, delimiter=",")
 
     # store the command-line arguments that represent the start, stop, and step size in the variable rate_params
-    rate_params = **(c, 0.5 marks)....**
+    rate_params = sys.argv[2:5]
     # note: since the parameters that are read by sys.argv are strings, we have to convert them to floats using float(a_string)
     range_rate = np.arange(float(rate_params[0]), float(rate_params[1]), float(rate_params[2]))
 
@@ -49,7 +50,8 @@ def main():
 
 # write the code necessary to make sure the main() function is called when we run the script from command line
 **(e, 1 mark)...**
-
+if __name__ == "__main__":
+    main()
 ```
 save and close.
 Try for yourself to run the script in the command line with a few parameter ranges for the dataset shared with you. for example:
